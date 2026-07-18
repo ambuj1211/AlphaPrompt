@@ -1,0 +1,13 @@
+.glass {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.glass:hover {
+  background: var(--glass-hover);
+  transition: 0.35s;
+}

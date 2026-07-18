@@ -1,0 +1,25 @@
+:root {
+  /* Brand */
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+
+  /* Background */
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+
+  /* Glass */
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+
+  /* Effects */
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --blur: blur(20px);
+
+  --radius: 20px;
+}
