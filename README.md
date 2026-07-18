@@ -1,18 +1,23 @@
-# 🚀 PromptAura
+# 🚀 AlphaPrompt
 
 <div align="center">
 
-### 🌌 A Modern AI Prompt Gallery
+<h3>🌌 Discover, Create & Share AI Prompts</h3>
 
-Discover, explore, and share AI-generated images and prompts with a beautiful Glassmorphism UI.
+<p>
+A modern AI Prompt Gallery built with <strong>React</strong>, <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB Atlas</strong>, <strong>Firebase Authentication</strong>, and <strong>Cloudinary</strong>.
+</p>
 
-Built with **React**, **Node.js**, **MongoDB**, **Firebase Authentication**, and **Cloudinary**.
+<p>
+Beautiful Glassmorphism UI • Lightning Fast • Fully Responsive
+</p>
 
 ![Status](https://img.shields.io/badge/Status-Under%20Development-orange)
-![Frontend](https://img.shields.io/badge/Frontend-React-blue)
-![Backend](https://img.shields.io/badge/Backend-Express-green)
-![Database](https://img.shields.io/badge/Database-MongoDB-success)
-![License](https://img.shields.io/badge/License-MIT-purple)
+![Frontend](https://img.shields.io/badge/Frontend-React-61DAFB)
+![Backend](https://img.shields.io/badge/Backend-Express-000000)
+![Database](https://img.shields.io/badge/Database-MongoDB-47A248)
+![Authentication](https://img.shields.io/badge/Auth-Firebase-FFCA28)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 </div>
 
@@ -20,9 +25,11 @@ Built with **React**, **Node.js**, **MongoDB**, **Firebase Authentication**, and
 
 # 📖 About
 
-PromptAura is a modern AI Prompt Gallery where users can browse AI-generated images, view prompts, search by categories, and interact with content through likes, dislikes, bookmarks, and sharing.
+**AlphaPrompt** is a modern AI Prompt Gallery that helps users discover, organize, and share high-quality AI prompts and AI-generated images.
 
-The application is designed with a **Glassmorphism + Aurora UI**, providing a premium user experience while maintaining high performance across mobile, tablet, and desktop devices.
+Whether you're using **ChatGPT**, **Gemini**, **Claude**, **Midjourney**, **Stable Diffusion**, or other AI tools, AlphaPrompt provides a clean and intuitive platform to explore prompts by category, popularity, and latest uploads.
+
+Designed with a premium **Glassmorphism + Aurora UI**, AlphaPrompt delivers a fast, responsive, and visually engaging experience across desktop, tablet, and mobile devices.
 
 ---
 
@@ -32,127 +39,85 @@ The application is designed with a **Glassmorphism + Aurora UI**, providing a pr
 
 - 🔍 Search AI prompts
 - 🖼 Browse AI-generated images
-- ❤️ Like images
-- 👎 Dislike images
-- ⭐ Bookmark favorite prompts
+- ❤️ Like prompts
+- 👎 Dislike prompts
+- ⭐ Bookmark favorites
 - 📤 Share to WhatsApp
-- 🔗 Copy Prompt
+- 🔗 Copy prompt to clipboard
 - 👀 View count
 - 🔥 Trending prompts
 - 🆕 Latest uploads
 - 🎨 Category filtering
-- 👤 Google Login
-- 📱 Fully Responsive
+- 👤 Google Authentication
+- 📱 Fully responsive design
 
 ---
 
-## 👨‍💼 Admin Features
+## 👨‍💻 Admin Features
 
 - Secure Admin Dashboard
 - Upload AI Images
 - Upload AI Prompts
-- Edit/Delete Images
+- Edit Prompts
+- Delete Prompts
 - Category Management
-- View Analytics
-- User Management (Future)
-- Advertisement Management (Future)
+- Image Management
+- Dashboard Analytics
+- User Management *(Future)*
 
 ---
 
-# 🎨 UI Design
+# 🎨 UI Highlights
 
 - 🌌 Aurora Background
-- 💎 Glassmorphism Components
+- 💎 Glassmorphism Design
 - 🌙 Dark Theme
 - ⚡ Smooth Animations
+- 🎭 Framer Motion
 - 📱 Mobile First Design
 - 🖼 Pinterest-style Gallery
-- ✨ Framer Motion Animations
+- ✨ Premium User Experience
 
 ---
 
 # 🛠 Tech Stack
 
-## Frontend
-
-- React
-- Vite
-- Tailwind CSS
-- React Router
-- Axios
-- Firebase Authentication
-- React Icons
-- Framer Motion
-
----
-
-## Backend
-
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
-- Firebase Admin SDK
-- JWT Authentication
-- Cloudinary
-- Multer
-
----
-
-## Deployment
-
-Frontend
-
-- Vercel
-
-Backend
-
-- Render
-
-Database
-
-- MongoDB Atlas
-
-Image Storage
-
-- Cloudinary
+| Category | Technology |
+|----------|------------|
+| Frontend | React, Vite, Tailwind CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas |
+| Authentication | Firebase Authentication, JWT |
+| Cloud Storage | Cloudinary |
+| HTTP Client | Axios |
+| Animation | Framer Motion |
+| Deployment | Vercel & Render |
 
 ---
 
 # 📂 Project Structure
 
 ```text
-PromptAura/
+AlphaPrompt/
 │
-├── client/
+├── client/                     # React Frontend
 │   ├── public/
 │   ├── src/
-│   │
-│   ├── assets/
-│   │
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── layout/
-│   │   ├── home/
-│   │   ├── gallery/
-│   │   ├── admin/
-│   │   └── auth/
-│   │
-│   ├── pages/
-│   │
-│   ├── config/
-│   ├── constants/
-│   ├── services/
-│   ├── hooks/
-│   ├── context/
-│   ├── routes/
-│   ├── styles/
-│   ├── utils/
-│   │
-│   ├── App.jsx
-│   └── main.jsx
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── config/
+│   │   ├── constants/
+│   │   ├── context/
+│   │   ├── data/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   └── utils/
+│   └── package.json
 │
-├── server/
+├── server/                     # Express Backend
 │   ├── config/
 │   ├── controllers/
 │   ├── middleware/
@@ -163,24 +128,25 @@ PromptAura/
 │   ├── utils/
 │   ├── app.js
 │   ├── server.js
-│   └── .env
+│   └── package.json
 │
-├── README.md
-└── requirement.txt
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
 ---
 
-# 🚀 Installation
+# 🚀 Getting Started
 
-## Clone Repository
+## Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/PromptAura.git
+git clone https://github.com/ambuj1211/AlphaPrompt.git
 ```
 
 ```bash
-cd PromptAura
+cd AlphaPrompt
 ```
 
 ---
@@ -189,13 +155,11 @@ cd PromptAura
 
 ```bash
 cd client
-
 npm install
-
 npm run dev
 ```
 
-Frontend runs on
+Frontend runs at:
 
 ```
 http://localhost:5173
@@ -207,13 +171,11 @@ http://localhost:5173
 
 ```bash
 cd server
-
 npm install
-
 npm run dev
 ```
 
-Backend runs on
+Backend runs at:
 
 ```
 http://localhost:5000
@@ -223,7 +185,7 @@ http://localhost:5000
 
 # 🔐 Environment Variables
 
-## Backend (.env)
+## Backend (`server/.env`)
 
 ```env
 PORT=5000
@@ -243,7 +205,7 @@ CLOUDINARY_API_SECRET=
 
 ---
 
-## Frontend (.env)
+## Frontend (`client/.env`)
 
 ```env
 VITE_FIREBASE_API_KEY=
@@ -272,39 +234,34 @@ Supports
 
 ---
 
-# 📊 Planned Features
+# 🚧 Project Status
 
-- AI Image Upload
-- AI Prompt Upload
-- Google Login
-- Like / Dislike
-- Bookmark
-- Search
-- Categories
-- Trending
-- Latest Uploads
-- Related Prompts
-- User Profile
-- Admin Dashboard
-- Analytics
-- Cloudinary Integration
-- Firebase Authentication
-- Google AdSense
-- SEO Optimization
-- Dark Mode
-- Progressive Web App (PWA)
+This project is currently under active development.
+
+### Current Progress
+
+- ✅ Project Structure
+- ✅ React + Vite Setup
+- ✅ Express Backend
+- ✅ MongoDB Atlas Integration
+- ✅ Firebase Configuration
+- 🚧 Glassmorphism UI
+- 🚧 Authentication
+- ⏳ Admin Dashboard
+- ⏳ Gallery
+- ⏳ Deployment
 
 ---
 
-# 🎯 Development Roadmap
+# 📋 Development Roadmap
 
 ## Phase 1
 
-- [x] Environment Setup
+- [x] Project Setup
 - [x] React + Vite
-- [x] Express Server
+- [x] Express Backend
 - [x] MongoDB Atlas
-- [x] Tailwind CSS
+- [x] Firebase Configuration
 - [x] Project Architecture
 
 ---
@@ -315,13 +272,14 @@ Supports
 - [ ] Aurora Background
 - [ ] Responsive Navbar
 - [ ] Hero Section
+- [ ] Home Page
 - [ ] Gallery Layout
 
 ---
 
 ## Phase 3
 
-- [ ] Firebase Authentication
+- [ ] Google Authentication
 - [ ] JWT Authentication
 - [ ] Protected Routes
 
@@ -330,37 +288,61 @@ Supports
 ## Phase 4
 
 - [ ] Admin Dashboard
-- [ ] Image Upload
-- [ ] Prompt Upload
+- [ ] Upload AI Images
+- [ ] Upload AI Prompts
+- [ ] Cloudinary Integration
 
 ---
 
 ## Phase 5
 
-- [ ] Gallery
 - [ ] Search
 - [ ] Categories
 - [ ] Trending
 - [ ] Latest Uploads
+- [ ] Prompt Details
 
 ---
 
 ## Phase 6
 
-- [ ] Like
-- [ ] Dislike
-- [ ] Share
-- [ ] Bookmark
-- [ ] View Count
+- [ ] Like System
+- [ ] Dislike System
+- [ ] Bookmarks
+- [ ] Share Prompt
+- [ ] Copy Prompt
+- [ ] View Counter
 
 ---
 
 ## Phase 7
 
-- [ ] Deployment
-- [ ] Google AdSense
-- [ ] SEO
 - [ ] Analytics
+- [ ] SEO Optimization
+- [ ] Google AdSense
+- [ ] Deployment
+- [ ] Performance Optimization
+
+---
+
+# 🚀 Future Features
+
+- AI Prompt Collections
+- User Profiles
+- AI Prompt Generator
+- Prompt Recommendations
+- Prompt Rating System
+- Comments
+- Notifications
+- Progressive Web App (PWA)
+- Multi-language Support
+- REST API
+
+---
+
+# 📸 Screenshots
+
+Screenshots will be added as development progresses.
 
 ---
 
@@ -368,56 +350,63 @@ Supports
 
 Contributions are welcome!
 
-1. Fork the repository
-2. Create a feature branch
+1. Fork this repository
+
+2. Create a new branch
 
 ```bash
 git checkout -b feature/your-feature
 ```
 
-3. Commit changes
+3. Commit your changes
 
 ```bash
 git commit -m "feat: add your feature"
 ```
 
-4. Push
+4. Push your branch
 
 ```bash
 git push origin feature/your-feature
 ```
 
-5. Create a Pull Request
+5. Open a Pull Request
 
 ---
 
 # 📝 Commit Convention
 
 ```text
-feat:
-fix:
-style:
-docs:
-refactor:
-test:
-chore:
+feat:      New feature
+
+fix:       Bug fix
+
+docs:      Documentation
+
+style:     Formatting/UI
+
+refactor:  Code refactoring
+
+test:      Tests
+
+chore:     Maintenance
 ```
 
-Example
+Example:
 
 ```text
 feat: add glass navbar
 
-fix: responsive search bar
+fix: responsive sidebar
 
-refactor: improve folder structure
+refactor: optimize API structure
 ```
 
 ---
 
 # 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -426,14 +415,14 @@ This project is licensed under the MIT License.
 **Brilliant Ambuj**
 
 - GitHub: https://github.com/ambuj1211
-- LinkedIn: *(Add your LinkedIn profile here)*
+- Repository: https://github.com/ambuj1211/AlphaPrompt
 
 ---
 
 <div align="center">
 
-### ⭐ If you like this project, don't forget to star the repository!
+## ⭐ If you like this project, please give it a Star!
 
-Made with ❤️ using React, Node.js, MongoDB & Firebase
+Made with ❤️ using React, Node.js, MongoDB, Firebase & Cloudinary.
 
 </div>
