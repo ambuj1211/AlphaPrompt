@@ -1,21 +1,23 @@
-import { Sparkles } from "lucide-react";
+import logo from "../../../assets/logos/logo.svg";
 
 export default function NavLogo() {
   return (
-    <div className="flex items-center gap-3 cursor-pointer">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500">
-        <Sparkles className="text-white" size={20} />
-      </div>
+    <a href="/" className="flex items-center gap-3">
+      <img
+        src={logo}
+        alt="AlphaPrompt"
+        className="h-11 w-11 object-contain"
+      />
 
       <div>
-        <h1 className="text-xl font-bold text-white">
+        <h1 className="text-3xl font-bold tracking-tight text-white">
           AlphaPrompt
         </h1>
 
-        <p className="text-xs text-slate-400">
+        <p className="text-sm text-slate-400">
           AI Prompt Marketplace
         </p>
       </div>
-    </div>
+    </a>
   );
 }
