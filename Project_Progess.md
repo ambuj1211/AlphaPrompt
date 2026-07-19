@@ -180,7 +180,7 @@ Ad Banner
 Pending
 
 Footer
-Pending
+✔ Completed
 
 ---
 
@@ -304,8 +304,6 @@ FeaturedCreators
 
 AdBanner
 
-Footer
-
 ---
 
 # Remaining Pages
@@ -380,11 +378,11 @@ Notifications
 
 Design System Completed (85%)
 
-Homepage Completed (80%)
+Homepage Completed (90%)
 
 Next Task
 
-Build the Footer component.
+Build the AdBanner component.
 
 After homepage is complete,
 move to React Router,
