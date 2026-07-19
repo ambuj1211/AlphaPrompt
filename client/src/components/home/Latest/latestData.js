@@ -1,0 +1,38 @@
+export const latestPrompts = [
+  {
+    id: 5,
+    title: "Next.js SaaS Landing Page",
+    category: "ChatGPT",
+    author: "Sophia",
+    likes: 182,
+    views: 1240,
+    image: "https://picsum.photos/500/400?5",
+  },
+  {
+    id: 6,
+    title: "Anime Character Generator",
+    category: "Image AI",
+    author: "Emma",
+    likes: 96,
+    views: 890,
+    image: "https://picsum.photos/500/400?6",
+  },
+  {
+    id: 7,
+    title: "YouTube Script Writer",
+    category: "Writing",
+    author: "Noah",
+    likes: 321,
+    views: 2145,
+    image: "https://picsum.photos/500/400?7",
+  },
+  {
+    id: 8,
+    title: "Python Code Reviewer",
+    category: "Coding",
+    author: "Liam",
+    likes: 276,
+    views: 1680,
+    image: "https://picsum.photos/500/400?8",
+  },
+];

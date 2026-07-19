@@ -1,16 +1,25 @@
+import HeroContent from "./HeroContent";
+import HeroActions from "./HeroActions";
+import HeroStats from "./HeroStats";
+import FloatingCards from "./FloatingCards";
+
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-24">
+    <section className="mx-auto flex min-h-[90vh] max-w-7xl items-center gap-16 px-6">
 
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="flex-1 space-y-10">
 
-        <h1 className="text-5xl font-bold">
-          Discover Amazing AI Prompts
-        </h1>
+        <HeroContent />
 
-        <p className="mt-6 text-xl">
-          Explore thousands of AI-generated images and prompts.
-        </p>
+        <HeroActions />
+
+        <HeroStats />
+
+      </div>
+
+      <div className="flex-1">
+
+        <FloatingCards />
 
       </div>
 

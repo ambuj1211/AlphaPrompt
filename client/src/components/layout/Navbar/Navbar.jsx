@@ -1,30 +1,20 @@
-import { FaSearch } from "react-icons/fa";
+import NavLogo from "./NavLogo";
+import NavLinks from "./NavLinks";
+import NavActions from "./NavActions";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50">
+      <nav className="glass mx-auto mt-5 flex max-w-7xl items-center justify-between rounded-2xl px-6 py-4">
+        <NavLogo />
 
-        <h1 className="text-2xl font-bold text-blue-600">
-          AlphaPrompt
-        </h1>
+        <NavLinks />
 
-        <div className="hidden md:flex w-96">
-          <input
-            className="w-full border rounded-l-lg px-4 py-2 outline-none"
-            placeholder="Search prompts..."
-          />
+        <NavActions />
 
-          <button className="bg-blue-600 text-white px-4 rounded-r-lg">
-            <FaSearch />
-          </button>
-        </div>
-
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-lg">
-          Login
-        </button>
-
-      </div>
-    </nav>
+        <MobileMenu />
+      </nav>
+    </header>
   );
 }

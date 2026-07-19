@@ -1,26 +1,42 @@
-const cards = Array.from({ length: 4 });
+import {
+  PromptCard,
+  PromptCardSkeleton,
+} from "../../ui/PromptCard";
+import { latestPrompts } from "./latestData";
 
-export default function Latest() {
+export default function Latest({ loading = false }) {
   return (
-    <section className="max-w-7xl mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold mb-6">
-        ✨ Latest Uploads
-      </h2>
+    <section className="mx-auto max-w-7xl px-6 py-24">
 
-      <div className="grid gap-6 md:grid-cols-4">
-        {cards.map((_, index) => (
-          <div
-            key={index}
-            className="rounded-xl shadow bg-white overflow-hidden"
-          >
-            <div className="bg-gray-300 h-52"></div>
+      <div className="mb-14 flex items-center justify-between">
 
-            <div className="p-4">
-              <h3>Latest Image {index + 1}</h3>
-            </div>
-          </div>
-        ))}
+        <div>
+          <h2 className="text-4xl font-bold text-white">
+            ✨ Latest Prompts
+          </h2>
+
+          <p className="mt-3 text-slate-400">
+            Freshly published prompts from our collection.
+          </p>
+        </div>
+
       </div>
+
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+
+        {loading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <PromptCardSkeleton key={index} />
+            ))
+          : latestPrompts.map((prompt) => (
+              <PromptCard
+                key={prompt.id}
+                {...prompt}
+              />
+            ))}
+
+      </div>
+
     </section>
   );
 }

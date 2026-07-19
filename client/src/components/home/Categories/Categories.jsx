@@ -1,31 +1,33 @@
-const categories = [
-  "Realistic",
-  "Anime",
-  "Ghibli",
-  "Wedding",
-  "Portrait",
-  "Fantasy",
-  "Nature",
-  "Architecture",
-  "Disney",
-  "Pixar",
-];
+import CategoryCard from "./CategoryCard";
+import { categories } from "./categoryData";
 
 export default function Categories() {
   return (
-    <section className="max-w-7xl mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold mb-6">Categories</h2>
+    <section className="mx-auto max-w-7xl px-6 py-24">
 
-      <div className="flex flex-wrap gap-4">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className="px-5 py-2 rounded-full bg-blue-100 hover:bg-blue-600 hover:text-white transition"
-          >
-            {category}
-          </button>
-        ))}
+      <div className="mb-16 text-center">
+
+        <h2 className="text-4xl font-bold text-white">
+          Browse by Category
+        </h2>
+
+        <p className="mt-4 text-slate-400">
+          Explore prompts organized by AI tool and use case.
+        </p>
+
       </div>
+
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+        {categories.map((category) => (
+          <CategoryCard
+            key={category.title}
+            {...category}
+          />
+        ))}
+
+      </div>
+
     </section>
   );
 }

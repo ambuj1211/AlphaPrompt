@@ -1,0 +1,38 @@
+export const prompts = [
+  {
+    id: 1,
+    title: "Ultra Realistic Portrait",
+    category: "Midjourney",
+    author: "John Doe",
+    likes: 1452,
+    views: 12340,
+    image: "https://picsum.photos/500/400?1",
+  },
+  {
+    id: 2,
+    title: "React Landing Page Generator",
+    category: "ChatGPT",
+    author: "Alex",
+    likes: 998,
+    views: 9400,
+    image: "https://picsum.photos/500/400?2",
+  },
+  {
+    id: 3,
+    title: "Professional Logo Creator",
+    category: "Image AI",
+    author: "Emma",
+    likes: 756,
+    views: 6500,
+    image: "https://picsum.photos/500/400?3",
+  },
+  {
+    id: 4,
+    title: "SEO Blog Writer",
+    category: "Writing",
+    author: "Sophia",
+    likes: 2010,
+    views: 18800,
+    image: "https://picsum.photos/500/400?4",
+  },
+];
