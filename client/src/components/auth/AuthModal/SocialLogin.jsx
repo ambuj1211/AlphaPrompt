@@ -1,14 +1,16 @@
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../../hooks/useAuth";
 
-const SocialLogin = () => {
+const SocialLogin = ({ onSuccess }) => {
   const { loginWithGoogle } = useAuth();
 
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-    } catch (error) {
-      console.error("Google Login Error:", error);
+
+      onSuccess?.();   // Close modal
+    } catch (err) {
+      console.error(err);
     }
   };
 

@@ -7,6 +7,8 @@ import {
   sendPasswordResetEmail,
   signOut,
   updateProfile,
+  sendEmailVerification,
+  reload,
 } from "firebase/auth";
 
 import { auth, googleProvider } from "../config/firebase";
@@ -22,7 +24,20 @@ const authService = {
       password
     );
 
-    return userCredential.user;
+    const user = userCredential.user;
+
+    // Refresh user to get latest verification status
+    await reload(user);
+
+    if (!user.emailVerified) {
+      await signOut(auth);
+
+      throw new Error(
+        "Please verify your email before signing in. A verification email has already been sent."
+      );
+    }
+
+    return user;
   },
 
   /**
@@ -35,35 +50,66 @@ const authService = {
       password
     );
 
-    // Update display name
-    await updateProfile(userCredential.user, {
+    const user = userCredential.user;
+
+    // Save display name
+    await updateProfile(user, {
       displayName: name,
     });
 
-    return userCredential.user;
+    // Send verification email
+    await sendEmailVerification(user);
+
+    return user;
   },
 
   /**
    * Login with Google
    */
   async loginWithGoogle() {
-    const userCredential = await signInWithPopup(auth, googleProvider);
+    const userCredential = await signInWithPopup(
+      auth,
+      googleProvider
+    );
 
     return userCredential.user;
   },
 
   /**
-   * Send Password Reset Email
+   * Resend Verification Email
    */
-  async forgotPassword(email) {
-    return sendPasswordResetEmail(auth, email);
+  async resendVerificationEmail() {
+    if (!auth.currentUser) {
+      throw new Error("No authenticated user found.");
+    }
+
+    await sendEmailVerification(auth.currentUser);
   },
 
   /**
-   * Logout Current User
+ * Check Email Verification Status
+ */
+  async checkEmailVerification() {
+    if (!auth.currentUser) {
+      return false;
+    }
+
+    await reload(auth.currentUser);
+
+    return auth.currentUser.emailVerified;
+  },
+  /**
+   * Forgot Password
+   */
+  async forgotPassword(email) {
+    await sendPasswordResetEmail(auth, email);
+  },
+
+  /**
+   * Logout
    */
   async logout() {
-    return signOut(auth);
+    await signOut(auth);
   },
 };
 

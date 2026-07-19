@@ -126,6 +126,7 @@ const LoginForm = ({ setMode, onClose }) => {
       </form>
 
       <SocialLogin />
+      {/* <SocialLogin onSuccess={onClose} /> */}
     </>
   );
 };

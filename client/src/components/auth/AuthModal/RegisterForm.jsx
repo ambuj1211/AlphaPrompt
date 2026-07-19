@@ -4,7 +4,7 @@ import { Eye, EyeOff } from "lucide-react";
 import useAuth from "../../../hooks/useAuth";
 import SocialLogin from "./SocialLogin";
 
-const RegisterForm = ({ setMode, onClose }) => {
+const RegisterForm = ({ setMode }) => {
     const { register } = useAuth();
 
     const [formData, setFormData] = useState({
@@ -15,10 +15,12 @@ const RegisterForm = ({ setMode, onClose }) => {
     });
 
     const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] =
+        useState(false);
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
 
     const handleChange = (e) => {
         setFormData((prev) => ({
@@ -27,12 +29,35 @@ const RegisterForm = ({ setMode, onClose }) => {
         }));
 
         setError("");
+        setSuccess("");
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (formData.password !== formData.confirmPassword) {
+        setError("");
+        setSuccess("");
+
+        if (
+            !formData.name.trim() ||
+            !formData.email.trim() ||
+            !formData.password.trim()
+        ) {
+            setError("Please fill in all fields.");
+            return;
+        }
+
+        if (formData.password.length < 6) {
+            setError(
+                "Password must be at least 6 characters long."
+            );
+            return;
+        }
+
+        if (
+            formData.password !==
+            formData.confirmPassword
+        ) {
             setError("Passwords do not match.");
             return;
         }
@@ -41,12 +66,19 @@ const RegisterForm = ({ setMode, onClose }) => {
             setLoading(true);
 
             await register(
-                formData.name,
-                formData.email,
+                formData.name.trim(),
+                formData.email.trim(),
                 formData.password
             );
 
-            onClose?.();
+            setFormData({
+                name: "",
+                email: "",
+                password: "",
+                confirmPassword: "",
+            });
+
+            setMode("verify");
         } catch (err) {
             setError(err.message);
         } finally {
@@ -73,7 +105,7 @@ const RegisterForm = ({ setMode, onClose }) => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-500"
+                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-violet-500"
                     />
                 </div>
 
@@ -90,7 +122,7 @@ const RegisterForm = ({ setMode, onClose }) => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-500"
+                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-violet-500"
                     />
                 </div>
 
@@ -102,19 +134,26 @@ const RegisterForm = ({ setMode, onClose }) => {
 
                     <div className="relative">
                         <input
-                            type={showPassword ? "text" : "password"}
+                            type={
+                                showPassword
+                                    ? "text"
+                                    : "password"
+                            }
                             name="password"
                             placeholder="Create a password"
                             value={formData.password}
                             onChange={handleChange}
                             required
-                            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pr-12 text-white outline-none focus:border-violet-500"
+                            minLength={6}
+                            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pr-12 text-white outline-none transition focus:border-violet-500"
                         />
 
                         <button
                             type="button"
                             onClick={() =>
-                                setShowPassword(!showPassword)
+                                setShowPassword(
+                                    !showPassword
+                                )
                             }
                             className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
                         >
@@ -142,10 +181,12 @@ const RegisterForm = ({ setMode, onClose }) => {
                             }
                             name="confirmPassword"
                             placeholder="Confirm your password"
-                            value={formData.confirmPassword}
+                            value={
+                                formData.confirmPassword
+                            }
                             onChange={handleChange}
                             required
-                            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pr-12 text-white outline-none focus:border-violet-500"
+                            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pr-12 text-white outline-none transition focus:border-violet-500"
                         />
 
                         <button
@@ -166,9 +207,16 @@ const RegisterForm = ({ setMode, onClose }) => {
                     </div>
                 </div>
 
+                {/* Success */}
+                {success && (
+                    <div className="rounded-xl border border-green-500/20 bg-green-500/10 p-4 text-sm text-green-400">
+                        {success}
+                    </div>
+                )}
+
                 {/* Error */}
                 {error && (
-                    <div className="rounded-xl bg-red-500/10 p-3 text-sm text-red-400">
+                    <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-400">
                         {error}
                     </div>
                 )}
@@ -188,7 +236,9 @@ const RegisterForm = ({ setMode, onClose }) => {
                     Already have an account?{" "}
                     <button
                         type="button"
-                        onClick={() => setMode("login")}
+                        onClick={() =>
+                            setMode("login")
+                        }
                         className="font-medium text-violet-400 hover:text-violet-300"
                     >
                         Sign In
@@ -197,6 +247,7 @@ const RegisterForm = ({ setMode, onClose }) => {
             </form>
 
             <SocialLogin />
+            {/* <SocialLogin onSuccess={onClose} /> */}
         </>
     );
 };

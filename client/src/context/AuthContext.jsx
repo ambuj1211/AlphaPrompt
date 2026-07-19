@@ -33,6 +33,13 @@ export function AuthProvider({ children }) {
     register: authService.register,
     loginWithGoogle: authService.loginWithGoogle,
     forgotPassword: authService.forgotPassword,
+
+    resendVerificationEmail:
+      authService.resendVerificationEmail,
+
+    checkEmailVerification:
+      authService.checkEmailVerification,
+
     logout: authService.logout,
   };
 
